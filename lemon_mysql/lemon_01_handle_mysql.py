@@ -23,3 +23,5 @@ sql = "select * from "
 cursor.execute(sql)
 
 conn.commit()
+
+pass
