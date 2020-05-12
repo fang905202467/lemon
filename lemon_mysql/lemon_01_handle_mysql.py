@@ -20,18 +20,20 @@ cursor = conn.cursor()
 
 # 3.执行sql语句
 # id = input("请输入要查询的ID:")
+#sql = "SELECT * FROM sign_event WHERE id=%s" #%s需要执行sql时传一个参数
 # sql_1 = "SELECT * FROM sign_event WHERE id=1"
 sql_2 = "SELECT * FROM sign_event LIMIT 0,3"
 
 # cursor.execute(sql_1)  # 执行sql
-# cursor.execute(sql_1, args=(id,))  # args需要传一个序列类型，列表、元祖、字符串 这里id加个，表示元祖
+# cursor.execute(sql, args=(id,))  # args需要传一个序列类型，列表、元祖、字符串 这里id加个，表示元祖
 cursor.execute(sql_2)
 # 需要手动提交
 conn.commit()
 # 获取执行结果
 # result1 = cursor.fetchone() #fetchone只返回一个结果，一条记录组成的字典
 result2 = cursor.fetchall() #fetchall返回一组数据
+print(result2)
 pass
-# 4.关闭连接(先关闭游标)
+# 4.关闭连接(先关闭游标，在关闭链接)
 cursor.close()
 conn.close()
